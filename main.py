@@ -1,12 +1,8 @@
 import math
 import re
 
-# -----------------------------
-# Secured Password Strength Checker
-# -----------------------------
-
 COMMON_PASSWORDS = {
-    "password", "123456", "qwerty", "111111", "abc123",
+    "password", "123456", "qwerty", "111111", "abc123!",
     "letmein", "admin", "welcome", "dragon", "monkey", "password123!"
 }
 
@@ -69,16 +65,13 @@ def score_password(password: str) -> int:
     else:
         score += 70
 
-    # Bonus points for variety
     if re.search(r"[a-z]", password): score += 5
     if re.search(r"[A-Z]", password): score += 5
     if re.search(r"[0-9]", password): score += 5
     if re.search(r"[^a-zA-Z0-9]", password): score += 5
 
-    # Length bonus
     score += min(len(password) * 2, 20)
 
-    # Penalties
     penalties = len(check_patterns(password)) * 5
     final_score = max(score - penalties, 0)
 
