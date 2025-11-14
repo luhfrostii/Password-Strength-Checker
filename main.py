@@ -7,7 +7,7 @@ import re
 
 COMMON_PASSWORDS = {
     "password", "123456", "qwerty", "111111", "abc123",
-    "letmein", "admin", "welcome", "dragon", "monkey"
+    "letmein", "admin", "welcome", "dragon", "monkey", "password123!"
 }
 
 DICTIONARY_WORDS = {
